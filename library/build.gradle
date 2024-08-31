@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'maven-publish'
+
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -23,13 +25,27 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:26.1.0'
 }
 
-publish {
+/*publish {
     userOrg = 'ethanhua'
     groupId = 'com.ethanhua'
     artifactId = 'skeleton'
-    publishVersion = '1.1.2'
+    publishVersion = '1.0.0'
     bintrayUser = 'ethanhua'
     bintrayKey = ''
     desc = 'a library provider a easy way to show skeleton loading view'
     website = 'https://github.com/ethanhua/Skeleton'
+}*/
+
+afterEvaluate {
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                groupId = 'org.github.sambudisp'
+                artifactId = 'skeleton-fork'
+                version = '1.0.0'
+
+                from components.java
+            }
+        }
+    }
 }
