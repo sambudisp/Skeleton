@@ -41,8 +41,8 @@ afterEvaluate {
         publications {
             mavenJava(MavenPublication) {
                 groupId = 'org.github.sambudisp'
-                artifactId = 'skeleton-fork'
-                version = '1.0.1'
+                artifactId = 'Skeleton'
+                version = '1.0.2'
 
                 from components.java
             }
